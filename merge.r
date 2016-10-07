@@ -1,9 +1,10 @@
+rm(list=ls())
 library(dplyr)
 library(ggplot2)
 library(date)
 library(lubridate)
 
-setwd("~/data-police-shootings/")
+setwd("~/sync/data-police-shootings/")
 wapo<-read.csv("fatal-police-shootings-data.csv")
 c1<-read.csv("the-counted-2015.csv")
 c2<-read.csv("the-counted-2016.csv")
@@ -14,6 +15,27 @@ z<-which(duplicated(cbind(geo$City, geo$State)))
 geo<-geo[-z,]
 geo$city<-tolower(geo$City)
 geo$state<-geo$State
+geo$county<-tolower(geo$County)
+
+pop<-read.csv("AHRF-county-pop.csv")
+pop$county<-tolower(pop$County.Name)
+pop$county<-gsub("dist. ", "district ", pop$county)
+pop$county<-gsub("the district", "district of columbia", pop$county)
+pop$county<-gsub("st. ", "saint ", pop$county)
+pop$county<-gsub(" \\(b\\)", "", pop$county)
+pop$county<-gsub(" \\(ca\\)", "", pop$county)
+pop$county<-gsub("\\(ca\\)", "", pop$county)
+pop$county<-gsub("prince george's", "prince georges", pop$county)
+pop$county<-gsub("matanuska-susitna", "matanuska susitna", pop$county)
+pop$county<-gsub("de witt", "dewitt", pop$county)
+
+
+
+names(pop)[which(names(pop)=="State.Abbrev")]<-"state"
+
+cdat<-pop%>%filter(FIPS.County.Code!=0)
+sdat<-pop%>%filter(FIPS.County.Code==0)
+
 
 dat<-dat%>%select(name, age, gender, raceethnicity,day, month, year,
                   city, state)
@@ -44,17 +66,26 @@ names(dat)[which(names(dat)=="raceethnicity")]<-"race"
 
 alldat<-rbind(wapo, dat)
 
-z<-which(duplicated(cbind(alldat$name, alldat$state, alldat$city)))
-dat.unique<-alldat[-z,]
-
-dat.unique$city<-tolower(dat.unique$city)
-dat.unique$city<-gsub("st. ", "saint ", dat.unique$city)
-
+alldat$city<-tolower(alldat$city)
+alldat$city<-gsub("st. ", "saint ", alldat$city)
 
 ###FIGURE OUT BAD MATCHES
 
-d<-left_join(dat.unique, geo, by=c("city", "state"))
+d<-left_join(alldat, geo, by=c("city", "state"))
+z<-which(duplicated(cbind(d$name, d$state)))
+d<-d[-z,]
 
+dups<-which(duplicated(d$name))
+test<-which(d$name%in%d[dups, "name"])
 
-miss<-which(is.na(d$County))
+check<-d[test,]
+check<-check[order(check$name),]
+
+####MERGE POP DAT
+d1<-left_join(d, cdat, by=c("county", "state"))
+
+z<-which(is.na(d1$County.Name))
+d1[z,1:15]
+
+d1<-d1%>%select(-City, -State, -County, -County.Name)
 

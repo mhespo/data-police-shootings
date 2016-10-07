@@ -80176,7 +80176,7 @@ ZipCode,City,State,County
 ,barton,MS,marshall
 ,berrien county,MI,berrien
 ,bexar county,TX,bexar
-,bloomfield township,MI,oakand
+,bloomfield township,MI,oakland
 ,bloomington,MN,HENNEPIN
 ,boyle heights,CA,los angeles
 ,braxton county,WV,braxton
@@ -80201,7 +80201,7 @@ ZipCode,City,State,County
 ,college park,GA,fulton
 ,columbia heights,MN,anoka
 ,columbia township,MI,jackson
-,coney island,NY,king
+,coney island,NY,kings
 ,constantania,NY,oswego
 ,davie,FL,broward
 ,daviess county,KY,daviess
@@ -80281,7 +80281,7 @@ ZipCode,City,State,County
 ,mt hope,WV,fayette
 ,mt ida,AR,montgomery
 ,mt olive,WV,fayette
-,mt shasta,CA,Siskiyou 
+,mt shasta,CA,Siskiyou
 ,mt vernon,OH,knox
 ,mt. auburn,OH,hamilton
 ,murray,UT,salt lake
@@ -80310,8 +80310,8 @@ ZipCode,City,State,County
 ,peltzer,SC,anderson
 ,penn township,PA,york
 ,perry township,OH,stark
-,pinion hills,CA,san bernadino
-,plymouth,MN,amador
+,pinion hills,CA,san bernardino
+,plymouth,MN,hennepin
 ,point loma,CA,san diego
 ,port vincent,LA,livingston
 ,pottawatomie county,OK,pottawatomie
@@ -80327,12 +80327,12 @@ ZipCode,City,State,County
 ,rosemont,IL,cook
 ,roseville,MN,ramsey
 ,rossville,GA,walker
-,rotterdam,NY,Schenectady 
+,rotterdam,NY,Schenectady
 ,roxand township,MI,eaton
 ,rudioso,NM,lincoln
 ,saginaw,TX,tarrant
 ,saint martin,MS,jackson
-,san bernadino,CA,san bernadino
+,san bernadino,CA,san bernardino
 ,san diego county,CA,san diego
 ,sand city,CA,monterey
 ,santa nella,CA,merced
@@ -80358,7 +80358,7 @@ ZipCode,City,State,County
 ,tampa bay,FL,Hillsborough
 ,thurston county,WA,thurston
 ,tuscon,AZ,pima
-,valinda,CA,san gabriel
+,valinda,CA,los angeles
 ,waikoloa village,HI,hawaii
 ,wasau,WI,marathon
 ,washington county,AL,WASHINGTON
