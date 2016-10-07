@@ -89,7 +89,7 @@ d1[z,1:15]
 
 d1<-d1%>%select(-City, -State, -County, -County.Name)
 
-names(sdat)<paste("ST", names(sdat), sep="")
+names(sdat)[7:ncol(sdat)]<-paste("ST", names(sdat), sep="")
 d1<-left_join(d1, sdat, by="state")
   
 write.csv(d1, "merge-dat.csv")
