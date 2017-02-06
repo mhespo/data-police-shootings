@@ -1,6 +1,6 @@
 #####################################
 ### Analysis, Fatal Encounters Data
-### R, EDA, County Level 
+### R, EDA, County Level 2
 #####################################
 
 ### Set-up
